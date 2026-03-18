@@ -1,0 +1,34 @@
+{
+  "name": "nodejs",
+  "version": "1.0.0",
+  "description": "Descarga de programas:",
+  "main": "1.os-info.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DARKSHADOWDEV14/NodeJs.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/DARKSHADOWDEV14/NodeJs/issues"
+  },
+  "homepage": "https://github.com/DARKSHADOWDEV14/NodeJs#readme",
+  "dependencies": {
+    "picocolors": "^1.1.1"
+  },
+  "eslintConfig": {
+    "extends":["standard", "eslint:recommended"],
+    "rules": {
+    "quotes": ["error", "single"],
+    "semi": ["error", "never"]
+  }
+  },
+  "devDependencies": {
+    "standard": "17.1.2"
+  }
+}
