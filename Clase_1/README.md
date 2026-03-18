@@ -36,6 +36,14 @@ para que funcione Eslint es necesario descargar la extension y además ingresar 
   },
 }
 
+Lo siguiente se coloca en package.json
+
+"eslintConfig": {
+    "extends":["standard", "eslint:recommended"],
+    "rules": {
+    "quotes": ["error", "single"],
+    "semi": ["error", "never"]
+
 ^ = se le llamama 'gareth' se utiliza en las dependencias para 
 
 
