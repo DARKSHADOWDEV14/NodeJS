@@ -1,0 +1,38 @@
+{
+  "name": "clase_2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "1.http.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev:1": "nodemon 1.https.js",
+    "dev:2": "nodemon 2.routing.js",
+    "dev:3": "node --watch 3.express.js"
+  },
+  "eslintConfig": {
+    "extends": [
+      "standard",
+      "eslint:recommended"
+    ],
+    "rules": {
+      "quotes": [
+        "error",
+        "single"
+      ],
+      "semi": [
+        "error",
+        "never"
+      ]
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "type": "commonjs"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  },
+  "dependencies": {
+    "express": "5.2.1"
+  }
+}

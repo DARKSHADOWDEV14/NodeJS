@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/DARKSHADOWDEV14/NodeJs#readme",
   "dependencies": {
-    "picocolors": "^1.1.1"
+    "picocolors": "1.1.1"
   },
   "eslintConfig": {
     "extends":["standard", "eslint:recommended"],

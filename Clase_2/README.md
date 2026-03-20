@@ -63,14 +63,8 @@ instalar la extension REST Client
 Express = framework para hacer páginas web
 
 
-
-
-
-
-
-
-
-
-
-
-
+Express = framework para crear paginas web, base de datos y 
+entorno de desarrollo
+npm install express -E
+const express = require('express')
+const app = express()
