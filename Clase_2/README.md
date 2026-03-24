@@ -68,3 +68,5 @@ entorno de desarrollo
 npm install express -E
 const express = require('express')
 const app = express()
+
+npm install zod -E
