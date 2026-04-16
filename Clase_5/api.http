@@ -2,7 +2,7 @@
 GET http://localhost:1234/movies
 
 ### Recuperar una película por id
-GET http://localhost:1234/movies/c8a7d63f-3b04-44d3-9d95-8782fd7dcfaf
+GET http://localhost:1234/movies/92105685-39af-11f1-96e5-c025a53136f8
 
 ### Recuperar todas las películas por un género
 GET http://localhost:1234/movies?genre=ACTION
@@ -24,7 +24,7 @@ Content-Type: application/json
   ]
 }
 ### Eliminar una película por id
-DELETE http://localhost:1234/movies/c8a7d63f-3b04-44d3-9d95-8782fd7dcfaf
+DELETE http://localhost:1234/movies/14a27961-39b8-11f1-96e5-c025a53136f8
 
 ### Crear una película con POST sin el campo sql
 
@@ -43,8 +43,9 @@ Content-Type: application/json
 }
 
 ### Actualizar una película
-PATCH http://localhost:1234/movies/c8a7d63f-3b04-44d3-9d95-8782fd7dcfaf
+PATCH http://localhost:1234/movies/921067b1-39af-11f1-96e5-c025a53136f8
 Content-Type: application/json
+
 
 {
   "year": 2022
