@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>appChat</title>
+</head>
+<script type="module">
+    import { io } from "https://cdn.socket.io/4.5.4/socket.io.esm.min.js";
+    const socket = io();
+</script>
+<style>
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }   
+
+    :root {
+        color-scheme: light dark;
+    }
+
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        display: grid;
+        place-content: center;
+        align-items: center;
+        height: 100vh;
+        padding: 36px 36px 100px 36px;
+        grid-template-rows: 1fr;
+    }
+
+    #chat {
+        width: 350px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        overflow: hidden;
+        height: 100%;
+        position: relative;
+        right: 0;;
+        
+    }
+
+    #input{
+        border-radius: 9999px;
+        border: 1px solid #ccc;
+        flex: 1;
+        margin: 4px;
+        padding: 0px 8px;
+    }
+
+    #input:focus {
+        outline: 0;
+        border-color: #007BFF;
+    }
+
+    #form{
+        background: #007BFF;
+        color: white;
+        border: 0;
+        margin: 4px;
+        border-radius: 4px;
+        position: absolute;
+        bottom: 0;
+        left: o;
+
+    }
+
+    #form > button:hover{
+        background: #0056b3;
+    }
+</style>
+<body>
+     <section id="chat">
+        <form id="form">
+            <input type="text" name="message" id="message" placeholder="Escribe tu mensaje..." autocomplete="off">
+            <button type="submit"> Enviar </button>
+        </form>
+     </section>
+</body>
+
+</html>
