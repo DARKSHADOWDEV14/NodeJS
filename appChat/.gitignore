@@ -1,0 +1,4 @@
+node_modules
+turso-cli_Darwin_x86_64.tar.gz
+.env
+.env.*
