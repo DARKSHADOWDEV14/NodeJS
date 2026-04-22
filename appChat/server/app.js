@@ -20,7 +20,8 @@ const db = createClient({
   authToken: process.env.DB_TOKEN,
 });
 
-await db.execute('CREATE TABLE IF NOT EXISTS messages (id INTEGER PRIMARY KEY AUTOINCREMENT, content TEXT)'); 
+
+await db.execute('CREATE TABLE IF NOT EXISTS messages (id INTEGER PRIMARY KEY AUTOINCREMENT, content TEXT, user TEXT)'); 
 
 
 io.on('connection', async (socket) => {
@@ -31,37 +32,44 @@ io.on('connection', async (socket) => {
   });
 
   socket.on('chat message', async (msg) => {
-    let result
+    let result;
+    let username = socket.handshake.auth.username ?? 'Anonymous';
 
     try {
-      const result = await db.execute({
-        sql: 'INSERT INTO messages (content) VALUES (:msg)',
-        args: { msg},
-      })
+      console.log({ username });
 
-      io.emit('chat message', msg, result.lastInsertRowid.toString());
-      
+      result = await db.execute({
+        sql: 'INSERT INTO messages (content, user) VALUES (:msg, :username)',
+        args: { msg, username },
+      });
+
     } catch (error) {
-      console.error(error)
-      return
+      console.error(error);
+      return;
     }
 
+    io.emit('chat message', msg, result.lastInsertRowid.toString(), username);
   });
 
   if (!socket.recovered) {
-        try {
-            const results = await db.execute({
-                sql: 'SELECT id, content FROM messages WHERE id > ?',
-                args: [socket.handshake.auth.serverOffset ?? 0]
-            })
+    try {
+      const results = await db.execute({
+        sql: 'SELECT id, content, user FROM messages WHERE id > ?',
+        args: [socket.handshake.auth.serverOffset ?? 0],
+      });
 
-            results.rows.forEach(row =>{
-                socket.emit('chat message', row.content, row.id.toString())
-            })
-        } catch (error) {
-            console.log(error)
-        }
+      results.rows.forEach((row) => {
+        socket.emit(
+          'chat message',
+          row.content,
+          row.id.toString(),
+          row.user
+        );
+      });
+    } catch (error) {
+      console.log(error);
     }
+  }
 });
 
 
